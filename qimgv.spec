@@ -1,5 +1,5 @@
 Name:           qimgv
-Version:        0.7.3
+Version:        0.8.4
 Release:        1
 Summary:        Simple Qt5 image viewer
 License:        GPL
