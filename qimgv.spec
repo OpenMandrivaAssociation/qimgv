@@ -46,6 +46,7 @@ Qt5 image viewer also with video support.
 %doc README.md
 %license LICENSE
 %{_bindir}/%{name}
+%{_libdir}/libqimgv_player_mpv.so*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
 
