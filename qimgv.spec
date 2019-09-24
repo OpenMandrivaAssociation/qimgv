@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Multimedia)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  pkgconfig(exiv2)
+BuildRequires:  stdc++-static-devel
 BuildRequires:  ninja
 # Optional, mpv needed for video support and KF5WindowSystem for better KDE support.
 BuildRequires:  pkgconfig(mpv)
