@@ -1,5 +1,5 @@
 Name:           qimgv
-Version:        0.7.3
+Version:        0.8.4
 Release:        1
 Summary:        Simple Qt5 image viewer
 License:        GPL
@@ -20,6 +20,8 @@ BuildRequires:	pkgconfig(Qt5QuickWidgets)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Multimedia)
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  pkgconfig(exiv2)
+BuildRequires:  stdc++-static-devel
 BuildRequires:  ninja
 # Optional, mpv needed for video support and KF5WindowSystem for better KDE support.
 BuildRequires:  pkgconfig(mpv)
@@ -44,6 +46,7 @@ Qt5 image viewer also with video support.
 %doc README.md
 %license LICENSE
 %{_bindir}/%{name}
+%{_libdir}/libqimgv_player_mpv.so*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
 
