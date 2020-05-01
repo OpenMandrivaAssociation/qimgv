@@ -18,6 +18,7 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Multimedia)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  pkgconfig(exiv2)
+BuildRequires:  pkgconfig(opencv)
 BuildRequires:  stdc++-static-devel
 BuildRequires:  ninja
 # Optional, mpv needed for video support and KF5WindowSystem for better KDE support.
@@ -46,4 +47,3 @@ Qt5 image viewer also with video support.
 %{_libdir}/libqimgv_player_mpv.so*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
-
