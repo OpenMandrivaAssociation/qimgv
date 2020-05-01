@@ -18,7 +18,9 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Multimedia)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  pkgconfig(exiv2)
-BuildRequires:  pkgconfig(opencv)
+# As of Qimgv 0.9 OpenCV is used. We provide OpenCV 3.4.5 but for compile needed is 4.2. 
+# So disable it for now, until update OpenCV to 4.X series.
+#BuildRequires:  pkgconfig(opencv)
 BuildRequires:  stdc++-static-devel
 BuildRequires:  ninja
 # Optional, mpv needed for video support and KF5WindowSystem for better KDE support.
@@ -34,7 +36,7 @@ Qt5 image viewer also with video support.
 
 %build
 
-%cmake -G Ninja -DVIDEO_SUPPORT=ON -DKDE_SUPPORT=ON
+%cmake -G Ninja -DVIDEO_SUPPORT=ON -DKDE_SUPPORT=ON -DOPENCV_SUPPORT=OFF
 %ninja_build
 
 %install
