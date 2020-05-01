@@ -1,5 +1,5 @@
 Name:           qimgv
-Version:	0.8.9
+Version:	0.9
 Release:	1
 Summary:        Simple Qt5 image viewer
 License:        GPL
@@ -18,6 +18,9 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Multimedia)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  pkgconfig(exiv2)
+# As of Qimgv 0.9 OpenCV is used. We provide OpenCV 3.4.5 but for compile needed is 4.2. 
+# So disable it for now, until update OpenCV to 4.X series.
+#BuildRequires:  pkgconfig(opencv)
 BuildRequires:  stdc++-static-devel
 BuildRequires:  ninja
 # Optional, mpv needed for video support and KF5WindowSystem for better KDE support.
@@ -33,7 +36,7 @@ Qt5 image viewer also with video support.
 
 %build
 
-%cmake -G Ninja -DVIDEO_SUPPORT=ON -DKDE_SUPPORT=ON
+%cmake -G Ninja -DVIDEO_SUPPORT=ON -DKDE_SUPPORT=ON -DOPENCV_SUPPORT=OFF
 %ninja_build
 
 %install
@@ -46,4 +49,3 @@ Qt5 image viewer also with video support.
 %{_libdir}/libqimgv_player_mpv.so*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
-
