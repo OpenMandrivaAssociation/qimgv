@@ -35,6 +35,13 @@ Qt5 image viewer also with video support.
 %autopatch -p0
 
 %build
+# Needed for i686 or error "has non-ABS relocation R_386_GOTOFF against symbol '.LC11'" appear.
+%ifarch %{ix86}
+export CC=gcc
+export CXX=g++
+%global ldflags %{ldflags} -Wl,-z,notext
+%global ldflags %{ldflags} -fuse-ld=gold
+%endif
 
 %cmake -G Ninja -DVIDEO_SUPPORT=ON -DKDE_SUPPORT=ON -DOPENCV_SUPPORT=OFF
 %ninja_build
