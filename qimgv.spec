@@ -54,6 +54,6 @@ export CXX=g++
 %doc README.md
 %license LICENSE
 %{_bindir}/%{name}
-%{_libdir}/libqimgv_player_mpv.so*
+#{_libdir}/libqimgv_player_mpv.so*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
