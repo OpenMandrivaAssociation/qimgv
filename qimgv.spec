@@ -21,7 +21,7 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:  pkgconfig(exiv2)
 # As of Qimgv 0.9 OpenCV is used. We provide OpenCV 3.4.5 but for compile needed is 4.2. 
 # So disable it for now, until update OpenCV to 4.X series.
-#BuildRequires:  pkgconfig(opencv)
+BuildRequires:  pkgconfig(opencv)
 BuildRequires:  stdc++-static-devel
 BuildRequires:  ninja
 # Optional, mpv needed for video support and KF5WindowSystem for better KDE support.
@@ -44,7 +44,7 @@ export CXX=g++
 %global ldflags %{ldflags} -fuse-ld=gold
 %endif
 
-%cmake -G Ninja -DVIDEO_SUPPORT=ON -DKDE_SUPPORT=ON -DOPENCV_SUPPORT=OFF
+%cmake -G Ninja -DVIDEO_SUPPORT=ON -DKDE_SUPPORT=ON -DOPENCV_SUPPORT=ON
 %ninja_build
 
 %install
@@ -54,6 +54,6 @@ export CXX=g++
 %doc README.md
 %license LICENSE
 %{_bindir}/%{name}
-#{_libdir}/libqimgv_player_mpv.so*
+%{_libdir}/qimgv/player_mpv.so
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
