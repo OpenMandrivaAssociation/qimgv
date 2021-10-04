@@ -16,6 +16,7 @@ BuildRequires:  pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5QuickWidgets)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Multimedia)
+BuildRequires:  pkgconfig(Qt5Svg)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  pkgconfig(exiv2)
 # As of Qimgv 0.9 OpenCV is used. We provide OpenCV 3.4.5 but for compile needed is 4.2. 
