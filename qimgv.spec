@@ -1,6 +1,6 @@
 Name:           qimgv
 Version:	1.0.2
-Release:	2
+Release:	3
 Summary:        Simple Qt5 image viewer
 License:        GPL
 Group:          Productivity/Graphics/Viewers
@@ -19,8 +19,6 @@ BuildRequires:	pkgconfig(Qt5Multimedia)
 BuildRequires:  pkgconfig(Qt5Svg)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  pkgconfig(exiv2)
-# As of Qimgv 0.9 OpenCV is used. We provide OpenCV 3.4.5 but for compile needed is 4.2. 
-# So disable it for now, until update OpenCV to 4.X series.
 BuildRequires:  pkgconfig(opencv4)
 BuildRequires:  stdc++-static-devel
 BuildRequires:  ninja
