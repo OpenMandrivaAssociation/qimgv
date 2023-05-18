@@ -1,11 +1,12 @@
 Name:           qimgv
 Version:	1.0.2
-Release:	5
+Release:	6
 Summary:        Simple Qt5 image viewer
 License:        GPL
 Group:          Productivity/Graphics/Viewers
 URL:            https://github.com/easymodo/qimgv
 Source0:        https://github.com/easymodo/qimgv/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0:		qimgv-1.0.2-exiv2-0.28.patch
 BuildRequires:  cmake
 BuildRequires:  qmake5
 BuildRequires:  hicolor-icon-theme
@@ -30,20 +31,11 @@ BuildRequires:  cmake(KF5WindowSystem)
 Qt5 image viewer also with video support.
 
 %prep
-%setup -q
-%autopatch -p0
+%autosetup -p1
+%cmake -G Ninja -DVIDEO_SUPPORT=ON -DKDE_SUPPORT=ON -DOPENCV_SUPPORT=ON
 
 %build
-# Needed for i686 or error "has non-ABS relocation R_386_GOTOFF against symbol '.LC11'" appear.
-%ifarch %{ix86}
-export CC=gcc
-export CXX=g++
-%global ldflags %{ldflags} -Wl,-z,notext
-%global ldflags %{ldflags} -fuse-ld=gold
-%endif
-
-%cmake -G Ninja -DVIDEO_SUPPORT=ON -DKDE_SUPPORT=ON -DOPENCV_SUPPORT=ON
-%ninja_build
+%ninja_build -C build
 
 %install
 %ninja_install -C build

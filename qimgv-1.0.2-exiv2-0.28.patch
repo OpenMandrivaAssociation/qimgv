@@ -1,0 +1,26 @@
+diff -up qimgv-1.0.2/plugins/player_mpv/src/mpvwidget.cpp.omv~ qimgv-1.0.2/plugins/player_mpv/src/mpvwidget.cpp
+--- qimgv-1.0.2/plugins/player_mpv/src/mpvwidget.cpp.omv~	2023-05-18 04:50:45.232478952 +0200
++++ qimgv-1.0.2/plugins/player_mpv/src/mpvwidget.cpp	2023-05-18 04:50:51.734541430 +0200
+@@ -69,7 +69,7 @@ void MpvWidget::setOption(const QString&
+ }
+ 
+ void MpvWidget::initializeGL() {
+-    mpv_opengl_init_params gl_init_params{get_proc_address, nullptr, nullptr};
++    mpv_opengl_init_params gl_init_params{get_proc_address, nullptr};
+     mpv_render_param params[]{
+         {MPV_RENDER_PARAM_API_TYPE, const_cast<char *>(MPV_RENDER_API_TYPE_OPENGL)},
+         {MPV_RENDER_PARAM_OPENGL_INIT_PARAMS, &gl_init_params},
+diff -up qimgv-1.0.2/qimgv/sourcecontainers/documentinfo.cpp.omv~ qimgv-1.0.2/qimgv/sourcecontainers/documentinfo.cpp
+--- qimgv-1.0.2/qimgv/sourcecontainers/documentinfo.cpp.omv~	2023-05-18 04:50:21.953255271 +0200
++++ qimgv-1.0.2/qimgv/sourcecontainers/documentinfo.cpp	2023-05-18 04:50:30.987342074 +0200
+@@ -271,10 +271,6 @@ void DocumentInfo::loadExifTags() {
+         //std::cout << "Caught Exiv2 exception '" << e.what() << "'\n";
+         return;
+     }
+-    catch (Exiv2::BasicError<CharType> e) {
+-        //std::cout << "Caught BasicError Exiv2 exception '" << e.what() << "'\n";
+-        return;
+-    }
+ #endif
+ }
+ 
