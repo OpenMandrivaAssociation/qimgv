@@ -1,12 +1,13 @@
 Name:           qimgv
 Version:	1.0.2
-Release:	11
+Release:	12
 Summary:        Simple Qt5 image viewer
 License:        GPL
 Group:          Productivity/Graphics/Viewers
 URL:            https://github.com/easymodo/qimgv
 Source0:        https://github.com/easymodo/qimgv/archive/v%{version}/%{name}-%{version}.tar.gz
 Patch0:		qimgv-1.0.2-exiv2-0.28.patch
+Patch1:		qimgv-opencv5.patch
 BuildRequires:  cmake
 BuildRequires:  qmake5
 BuildRequires:  hicolor-icon-theme
@@ -20,7 +21,7 @@ BuildRequires:	pkgconfig(Qt5Multimedia)
 BuildRequires:  pkgconfig(Qt5Svg)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  pkgconfig(exiv2)
-BuildRequires:  pkgconfig(opencv4)
+BuildRequires:  pkgconfig(opencv5)
 BuildRequires:  stdc++-static-devel
 BuildRequires:  ninja
 # Optional, mpv needed for video support and KF5WindowSystem for better KDE support.
